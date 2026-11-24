@@ -95,7 +95,7 @@ jobs:
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
       - run: python scripts/build_android.py ${{ matrix.arguments }}
       - name: 校验 APK 签名证书
-        if: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+        if: ${{ github.repository == 'enginJie/guoapp' }}
         shell: bash
         run: |
           set -euo pipefail
